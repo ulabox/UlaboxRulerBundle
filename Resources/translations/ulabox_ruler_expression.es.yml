@@ -1,0 +1,5 @@
+ulabox_ruler:
+    label:
+        expression:
+            name:   Nombre
+            terms:  Terminos

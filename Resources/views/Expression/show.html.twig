@@ -1,0 +1,25 @@
+{% extends 'UlaboxRulerBundle::layout.html.twig' %}
+
+{% block section %}is-example{% endblock %}
+
+{% block subtitle %}
+  Example
+{% endblock %}
+
+{% block content %}
+<div class="example">
+  <article>
+    <ul class="breadcrumb">
+      <li><a href="{{ path('ulabox_ruler_expression_list') }}">Expressions</a> <span class="divider">/</span></li>
+      <li class="active">show</li>
+    </ul>
+    <h4 style="float:right"><a href="{{ path('ulabox_ruler_expression_create') }}">new expression</a></h4>
+
+    <address>
+      <strong>{{ expression.name }}</strong><br>
+      <strong>Id:</strong> #{{ expression.id }}<br>
+    </address>
+
+  </article>
+</div>
+{% endblock %}

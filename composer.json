@@ -1,0 +1,34 @@
+{
+    "name": "ulabox/ruler-bundle",
+    "type": "symfony-bundle",
+    "description": "Ruler support for Symfony2.",
+    "keywords": ["ruler", "rules", "engine"],
+    "homepage": "https://github.com/ulabox/Ruler",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ivannis Suárez Jérez",
+            "email": "ivan@ulabox.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/framework-bundle":        "~2.1",
+        "doctrine/orm":                    "*",
+        "stof/doctrine-extensions-bundle": "*",
+        "white-october/pagerfanta-bundle": "dev-master",
+        "pagerfanta/pagerfanta":           "dev-master",
+        "ruler/rule":                      "*"
+    },
+    "require-dev": {
+        "phpspec/phpspec2":     "dev-develop",
+        "phpspec/php-diff":     "dev-master"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-0": { "Ulabox\\Bundle\\RulerBundle": "" }
+    },
+    "target-dir": "Ulabox/Bundle/RulerBundle"
+}

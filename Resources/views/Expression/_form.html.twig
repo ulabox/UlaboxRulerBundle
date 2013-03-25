@@ -1,0 +1,44 @@
+
+{% if form.vars.errors|length %}
+  <div class="alert alert-error">
+      <div class="control-group error">
+          {{ form_errors(form) }}
+      </div>
+  </div>
+{% endif %}
+
+<form id="rule_container" class="form-horizontal" method="post" novalidate>
+  {{ form_errors(form.name) }}
+  <div class="control-group">
+    {% set name = form.name.vars.label %}
+    <label class="control-label" for="ulabox_ruler_expression_name">{{ name|trans({}, 'ulabox_ruler_expression') }}</label>
+    <div class="controls">
+      {{ form_widget(form.name) }}
+    </div>
+  </div>
+  <div class="control-group">
+    <label class="control-label" for="ulabox_ruler_expression_terms">{{ 'ulabox_ruler.label.expression.terms'|trans({}, 'ulabox_ruler_expression') }}</label>
+    <div class="controls">
+      <div class="rule-aggregator">
+        <div class="btn-group">
+          <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-plus"></i> <span class="caret"></span></button>
+          <ul class="dropdown-menu"  id="new-rule">
+            <li><a href="#" data-type="simple-term" data-value="logicalAnd"><span class="label label-inverse">&</span>  Simple And</a></li>
+            <li><a href="#" data-type="simple-term" data-value="logicalOr"><span class="label label-inverse">|</span>  Simple Or</a></li>
+            <li><a href="#" data-type="compount-term" data-value="logicalAnd"><span class="label label-inverse">& (...)</span>  Compount And</a></li>
+            <li><a href="#" data-type="compount-term" data-value="logicalOr"><span class="label label-inverse">| (...)</span>  Compount Or</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{ form_rest(form) }}
+  <div class="form-actions">
+     <input type="submit" value="Save" class="btn btn-inverse" />
+  </div>
+</form>
+
+{% import 'UlaboxRulerBundle::macros.html.twig' as templates %}
+
+{{ templates.simple_term(ulabox_ruler_variables(['Boolean']), ulabox_ruler_operators(), ulabox_ruler_variables(['Boolean'])) }}
+{{ templates.compount_term() }}

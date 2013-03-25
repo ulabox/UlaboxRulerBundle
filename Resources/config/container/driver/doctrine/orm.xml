@@ -1,0 +1,90 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <!-- models -->
+        <parameter key="ulabox_ruler.model.expression.class">Ulabox\Bundle\RulerBundle\Entity\Expression</parameter>
+        <parameter key="ulabox_ruler.model.compount_term.class">Ulabox\Bundle\RulerBundle\Entity\CompountTerm</parameter>
+        <parameter key="ulabox_ruler.model.simple_term.class">Ulabox\Bundle\RulerBundle\Entity\SimpleTerm</parameter>
+        <parameter key="ulabox_ruler.model.factor.class">Ulabox\Bundle\RulerBundle\Entity\Factor</parameter>
+
+        <!-- repositories -->
+        <parameter key="ulabox_ruler.repository.expression.class">Ulabox\Bundle\RulerBundle\Entity\ExpressionRepository</parameter>
+        <parameter key="ulabox_ruler.repository.compount_term.class">Doctrine\ORM\EntityRepository</parameter>
+        <parameter key="ulabox_ruler.repository.simple_term.class">Doctrine\ORM\EntityRepository</parameter>
+        <parameter key="ulabox_ruler.repository.factor.class">Doctrine\ORM\EntityRepository</parameter>
+    </parameters>
+
+    <services>
+        <!-- repositories -->
+        <service id="ulabox_ruler.repository.expression" class="%ulabox_ruler.repository.expression.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service">
+                <service id="ulabox_ruler.doctrine.orm.metadata.expression"
+                        factory-service="doctrine.orm.entity_manager"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                >
+                    <argument>%ulabox_ruler.model.expression.class%</argument>
+                </service>
+            </argument>
+        </service>
+
+        <service id="ulabox_ruler.repository.compount_term" class="%ulabox_ruler.repository.compount_term.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service">
+                <service id="ulabox_ruler.doctrine.orm.metadata.compount_term"
+                        factory-service="doctrine.orm.entity_manager"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                >
+                    <argument>%ulabox_ruler.model.compount_term.class%</argument>
+                </service>
+            </argument>
+        </service>
+
+        <service id="ulabox_ruler.repository.simple_term" class="%ulabox_ruler.repository.simple_term.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service">
+                <service id="ulabox_ruler.doctrine.orm.metadata.simple_term"
+                        factory-service="doctrine.orm.entity_manager"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                >
+                    <argument>%ulabox_ruler.model.simple_term.class%</argument>
+                </service>
+            </argument>
+        </service>
+
+        <service id="ulabox_ruler.repository.factor" class="%ulabox_ruler.repository.factor.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+            <argument type="service">
+                <service id="ulabox_ruler.doctrine.orm.metadata.factor"
+                        factory-service="doctrine.orm.entity_manager"
+                        factory-method="getClassMetadata"
+                        class="Doctrine\ORM\Mapping\ClassMetadata"
+                        public="false"
+                >
+                    <argument>%ulabox_ruler.model.factor.class%</argument>
+                </service>
+            </argument>
+        </service>
+
+        <!-- controllers -->
+        <service id="ulabox_ruler.controller.expression" class="%ulabox_ruler.controller.expression.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
+
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+
+    </services>
+
+</container>

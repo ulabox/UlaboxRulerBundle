@@ -1,0 +1,112 @@
+.rule-container {
+
+}
+.rule-container a {
+  text-decoration: none;
+}
+
+.rule-divider {
+  position: absolute;
+  height: 100%;
+  border-top: 1px solid #ccc;
+  border-left: 1px solid #ccc;
+  width: 65%;
+  *width: 65%;
+  margin-left: 45px;
+}
+
+.rule-term input,
+.rule-term select {
+  width: 100%;
+}
+
+.rule-term, .rule-compount-term {
+  position: relative;
+  padding-bottom: 10px;
+  height: 100%;
+  *zoom: 1;
+}
+
+.rule-aggregator {
+  margin-left: 20px;
+}
+
+
+legend + .rule-term, legend + .rule-compount-term {
+  margin-top: 20px;
+  -webkit-margin-top-collapse: separate;
+}
+
+.rule-term:before,
+.rule-term:after,
+.rule-compount-term:before,
+.rule-compount-term:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.rule-term:after,
+.rule-compount-term:after {
+  clear: both;
+}
+
+.rule-compount-term {
+  position: relative;
+  height: 100%;
+}
+
+.rule-compount-terms, .rule-compount-term-logical, .rule-logical, .rule-left-variable, .rule-operator, .rule-right-variable, .rule-actions, .rule-compount-actions {
+  display: block;
+  float: left;
+  min-height: 30px;
+  margin-left: 2.127659574468085%;
+  *margin-left: 2.074468085106383%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.rule-logical, .rule-compount-term-logical {
+  margin-left: 0;
+  *margin-left: 0;
+}
+
+.rule-left-variable, .rule-right-variable {
+  width: 23.404255319148934%;
+  *width: 23.351063829787233%;
+}
+
+.rule-compount-term-logical, .rule-logical, .rule-operator, .rule-actions, .rule-compount-actions {
+  width: 14.893617021276595%;
+  *width: 14.840425531914894%;
+}
+
+.rule-compount-terms {
+  width: 63.82986%;
+  *width: 63.776668511%;
+}
+
+.rule-compount-actions {
+
+}
+70.212765957
+
+.rule-compount-term-logical, .rule-logical {
+  margin-left: 0;
+  margin-top: -15px;
+}
+
+.rule-compount-term-logical .btn, .rule-logical .btn {
+  width: 45px;
+}
+
+.rule-actions .destroy, .rule-compount-actions .destroy {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: none;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  background: url(../img/destroy.png) no-repeat;
+}

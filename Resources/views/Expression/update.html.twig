@@ -1,0 +1,52 @@
+{% extends 'UlaboxRulerBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+  {{ parent() }}
+
+  {% stylesheets output='assets/compiled/ruler.css'
+      '@UlaboxRulerBundle/Resources/assets/css/ulabox.ruler.css'
+  %}
+      <link type="text/css" rel="stylesheet" href="{{ asset_url }}" />
+  {% endstylesheets %}
+{% endblock %}
+
+{% block section %}is-example{% endblock %}
+
+{% block subtitle %}
+  Example
+{% endblock %}
+
+{% block content %}
+<div class="example">
+  <article>
+    <ul class="breadcrumb">
+      <li><a href="{{ path('ulabox_ruler_expression_list') }}">Expressions</a> <span class="divider">/</span></li>
+      <li class="active">update</li>
+    </ul>
+
+    {% include 'UlaboxRulerBundle:Expression:_form.html.twig' %}
+
+  </article>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+  {{ parent() }}
+
+  {% javascripts output='assets/compiled/ruler.js'
+    '@UlaboxRulerBundle/Resources/assets/js/bootstrap-dropdown.js'
+    '@UlaboxRulerBundle/Resources/assets/js/chosen.jquery.js'
+    '@UlaboxRulerBundle/Resources/assets/js/ruler.mvc.js'
+    '@UlaboxRulerBundle/Resources/assets/js/store.min.js'
+    '@UlaboxRulerBundle/Resources/assets/js/rule.js'
+  %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+  {% endjavascripts %}
+
+  <script type="text/javascript">
+    $(function() {
+      new RulerView({ data: {{ terms|raw }} });
+    });
+  </script>
+
+{% endblock %}

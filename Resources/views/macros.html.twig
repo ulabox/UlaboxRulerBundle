@@ -1,0 +1,100 @@
+
+{% macro simple_term(leftVariables, operators, rightVariables) %}
+<script id="rule-term-template" type="text/template">
+    <input type="hidden" name="ulabox_ruler_terms<%= index %>[type]" value="simple">
+    <div class="rule-divider"></div>
+    <div class="rule-logical">
+      <% if (operator !== null) { %>
+        <% if (operator == 'logicalAnd') { %>
+          <div class="btn-group">
+            <button class="btn btn-success active" data-value="logicalAnd">And</button>
+            <button class="btn" data-value="logicalOr">Or</button>
+          </div>
+          <input type="hidden" name="ulabox_ruler_terms<%= index %>[logicalOperator]" value="logicalAnd">
+        <% } else { %>
+          <div class="btn-group">
+            <button class="btn" data-value="logicalAnd">And</button>
+            <button class="btn btn-success active" data-value="logicalOr">Or</button>
+          </div>
+          <input type="hidden" name="ulabox_ruler_terms<%= index %>[logicalOperator]" value="logicalOr">
+        <% } %>
+      <% } %>
+    </div>
+    <div class="rule-left-variable">
+      <select data-type="chosen" class="span12">
+        <option>Select a variable</option>
+        {% for group, variables in leftVariables %}
+        <optgroup label="{{ group }}">
+          {% for variable in variables %}
+            <option <% if (factor.leftOperand == '{{ variable.alias }}') { %>selected<% }; %> value="{{ variable.alias }}">{{ variable.name }}</option>
+          {% endfor %}
+        </optgroup>
+        {% endfor %}
+      </select>
+      <input type="hidden" name="ulabox_ruler_terms<%= index %>[leftOperand]" value="<%= factor.leftOperand %>">
+    </div>
+    <div class="rule-operator">
+      <select data-type="chosen" class="span12">
+        <option>Select a operator</option>
+        {% for operator in operators %}
+        <option <% if (factor.operator == '{{ operator }}') { %>selected<% }; %> value="{{ operator }}">{{ operator }}</option>
+        {% endfor %}
+      </select>
+      <input type="hidden" name="ulabox_ruler_terms<%= index %>[operator]" value="<%= factor.operator %>">
+    </div>
+    <div class="rule-right-variable">
+      <select data-type="chosen" class="span12">
+        <option>Select a variable</option>
+        {% for group, variables in rightVariables %}
+        <optgroup label="{{ group }}">
+          {% for variable in variables %}
+            <option <% if (factor.rightOperand == '{{ variable.alias }}') { %>selected<% }; %> value="{{ variable.alias }}">{{ variable.name }}</option>
+          {% endfor %}
+        </optgroup>
+        {% endfor %}
+      </select>
+      <input type="hidden" name="ulabox_ruler_terms<%= index %>[rightOperand]" value="<%= factor.rightOperand %>">
+    </div>
+    <div class="rule-actions">
+      <% if (actions.destroy) { %>
+      <a class="destroy"></a>
+      <% } %>
+    </div>
+</script>
+{% endmacro %}
+
+{% macro compount_term() %}
+<script id="rule-compount-term-template" type="text/template">
+  <input type="hidden" name="ulabox_ruler_terms<%= index %>[type]" value="compount">
+  <div class="rule-divider"></div>
+  <div class="rule-compount-term-logical">
+    <% if (operator == 'logicalAnd') { %>
+      <div class="btn-group">
+        <button class="btn btn-success active" data-value="logicalAnd">And</button>
+        <button class="btn" data-value="logicalOr">Or</button>
+      </div>
+      <input type="hidden" name="ulabox_ruler_terms<%= index %>[logicalOperator]" value="logicalAnd">
+    <% } else { %>
+      <div class="btn-group">
+        <button class="btn" data-value="logicalAnd">And</button>
+        <button class="btn btn-success active" data-value="logicalOr">Or</button>
+      </div>
+      <input type="hidden" name="ulabox_ruler_terms<%= index %>[logicalOperator]" value="logicalOr">
+    <% } %>
+  </div>
+  <div class="rule-compount-terms">
+    <div class="rule-aggregator">
+      <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown"><i class="icon-plus"></i> <span class="caret"></span></button>
+        <ul class="dropdown-menu append-rule">
+          <li><a href="#" data-type="simple-term" data-value="logicalAnd"><span class="label label-inverse">&</span>  Simple And</a></li>
+          <li><a href="#" data-type="simple-term" data-value="logicalOr"><span class="label label-inverse">|</span>  Simple Or</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="rule-compount-actions">
+    <a class="destroy"></a>
+  </div>
+</script>
+{% endmacro %}

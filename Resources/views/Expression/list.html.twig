@@ -1,0 +1,39 @@
+{% extends 'UlaboxRulerBundle::layout.html.twig' %}
+
+{% block section %}is-example{% endblock %}
+
+{% block subtitle %}
+  Example
+{% endblock %}
+
+{% block content %}
+<div class="example">
+  <article>
+    <h2>Expressions</h2>
+    <h4 style="float:right"><a href="{{ path('ulabox_ruler_expression_create') }}">new expression</a></h4>
+    <table class="table table-striped table-bordered">
+      <tbody>
+        <tr>
+          <th>#Id</th>
+          <th>Name</th>
+          <th></th>
+        </tr>
+        {% for i,expression in paginator %}
+        <tr>
+          <td>{{ expression.id }}</td>
+          <td>{{ expression.name }}</td>
+          <td>
+            <a href="{{ path('ulabox_ruler_expression_delete', { id: expression.id }) }}">remove</a>
+            <a href="{{ path('ulabox_ruler_expression_update', { id: expression.id }) }}">edit</a>
+          </td>
+        </tr>
+        {% else %}
+        <tr>
+          <td colspan="3">No expressions</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </article>
+</div>
+{% endblock %}

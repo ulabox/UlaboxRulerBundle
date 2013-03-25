@@ -1,0 +1,4 @@
+ulabox_ruler:
+    expression:
+        name:
+            not_blank: Name is required for the expression! You can change it later.

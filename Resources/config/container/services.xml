@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <!-- managers -->
+        <parameter key="ulabox_ruler.manager.ruler.class">Ulabox\Bundle\RulerBundle\Manager\RulerManager</parameter>
+        <parameter key="ulabox_ruler.manager.expression.class">Ulabox\Bundle\RulerBundle\Manager\ExpressionManager</parameter>
+        <parameter key="ulabox_ruler.manager.compount_term.class">Ulabox\Bundle\RulerBundle\Manager\CompountTermManager</parameter>
+        <parameter key="ulabox_ruler.manager.simple_term.class">Ulabox\Bundle\RulerBundle\Manager\SimpleTermManager</parameter>
+        <parameter key="ulabox_ruler.manager.factor.class">Ulabox\Bundle\RulerBundle\Manager\FactorManager</parameter>
+
+        <!-- controllers -->
+        <parameter key="ulabox_ruler.controller.expression.class">Ulabox\Bundle\RulerBundle\Controller\ExpressionController</parameter>
+
+        <!-- resolvers -->
+        <parameter key="ulabox_ruler.resolver.term.class">Ulabox\Bundle\RulerBundle\Resolver\TermResolver</parameter>
+
+        <!-- form -->
+        <parameter key="ulabox_ruler.form.type.expression.class">Ulabox\Bundle\RulerBundle\Form\Type\ExpressionType</parameter>
+
+        <!-- twig -->
+        <parameter key="ulabox_ruler.twig.class">Ulabox\Bundle\RulerBundle\Twig\UlaboxRulerExtension</parameter>
+
+        <!-- variables -->
+        <parameter key="ulabox_ruler.variable.boolean_true.class">Ulabox\Bundle\RulerBundle\Variable\BooleanTrueVariable</parameter>
+        <parameter key="ulabox_ruler.variable.boolean_false.class">Ulabox\Bundle\RulerBundle\Variable\BooleanFalseVariable</parameter>
+
+    </parameters>
+
+    <services>
+        <!-- managers -->
+        <service id="ulabox_ruler.manager.ruler" class="%ulabox_ruler.manager.ruler.class%" />
+        <service id="ulabox_ruler.manager.expression" class="%ulabox_ruler.manager.expression.class%" />
+        <service id="ulabox_ruler.manager.compount_term" class="%ulabox_ruler.manager.compount_term.class%" />
+        <service id="ulabox_ruler.manager.simple_term" class="%ulabox_ruler.manager.simple_term.class%" />
+        <service id="ulabox_ruler.manager.factor" class="%ulabox_ruler.manager.factor.class%" />
+
+        <!-- resolvers -->
+        <service id="ulabox_ruler.resolver.term" class="%ulabox_ruler.resolver.term.class%" />
+
+        <!-- form -->
+        <service id="ulabox_ruler.form.type.expression" class="%ulabox_ruler.form.type.expression.class%">
+            <argument>%ulabox_ruler.model.expression.class%</argument>
+            <tag name="form.type" alias="ulabox_ruler_expression" />
+        </service>
+
+        <!-- twig -->
+        <service id="ulabox_ruler.twig" class="%ulabox_ruler.twig.class%">
+            <argument type="service" id="ulabox_ruler.manager.ruler" />
+            <tag name="twig.extension" />
+        </service>
+
+        <!-- variables -->
+        <service id="ulabox_ruler.variable.boolean_true" class="%ulabox_ruler.variable.boolean_true.class%">
+            <tag name="ulabox_ruler.variable" />
+        </service>
+
+        <service id="ulabox_ruler.variable.boolean_false" class="%ulabox_ruler.variable.boolean_false.class%">
+            <tag name="ulabox_ruler.variable" />
+        </service>
+    </services>
+
+</container>
