@@ -122,6 +122,12 @@ class ExpressionController extends Controller
             $form->bindRequest($request);
 
             if ($form->isValid()) {
+                // remove old terms
+                foreach ($expression->getTerms() as $term) {
+                    $this->manager->remove($term);
+                }
+                $this->manager->flush();
+
                 $resolver = $this->container->get('ulabox_ruler.resolver.term');
                 $expression->setTerms($resolver->resolve($request));
 
