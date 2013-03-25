@@ -12,9 +12,6 @@
         <parameter key="ulabox_ruler.manager.simple_term.class">Ulabox\Bundle\RulerBundle\Manager\SimpleTermManager</parameter>
         <parameter key="ulabox_ruler.manager.factor.class">Ulabox\Bundle\RulerBundle\Manager\FactorManager</parameter>
 
-        <!-- controllers -->
-        <parameter key="ulabox_ruler.controller.expression.class">Ulabox\Bundle\RulerBundle\Controller\ExpressionController</parameter>
-
         <!-- resolvers -->
         <parameter key="ulabox_ruler.resolver.term.class">Ulabox\Bundle\RulerBundle\Resolver\TermResolver</parameter>
 

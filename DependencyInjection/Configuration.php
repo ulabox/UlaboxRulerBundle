@@ -25,6 +25,7 @@ class Configuration implements ConfigurationInterface
             ->children()
                 ->scalarNode('driver')->cannotBeOverwritten()->isRequired()->cannotBeEmpty()->end()
                 ->scalarNode('engine')->defaultValue('twig')->end()
+                ->scalarNode('controller')->defaultValue('Ulabox\Bundle\RulerBundle\Controller\ExpressionController')->end()
             ->end();
 
         return $treeBuilder;

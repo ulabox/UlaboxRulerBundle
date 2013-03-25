@@ -14,10 +14,6 @@ ulabox_ruler_expression_delete:
     pattern: /{id}/delete
     defaults: { _controller: ulabox_ruler.controller.expression:deleteAction }
 
-ulabox_ruler_expression_duplicate:
-    pattern: /{id}/duplicate
-    defaults: { _controller: ulabox_ruler.controller.expression:duplicateAction }
-
 ulabox_ruler_expression_show:
     pattern: /{id}
     defaults: { _controller: ulabox_ruler.controller.expression:showAction }

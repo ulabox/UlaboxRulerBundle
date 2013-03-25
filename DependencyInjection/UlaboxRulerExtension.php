@@ -30,6 +30,7 @@ class UlaboxRulerExtension extends Extension
 
         $container->setParameter('ulabox_ruler.driver', $config['driver']);
         $container->setParameter('ulabox_ruler.engine', $config['engine']);
+        $container->setParameter('ulabox_ruler.controller.expression.class', $config['controller']);
 
         $loader->load('services.xml');
     }
