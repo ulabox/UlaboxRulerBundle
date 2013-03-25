@@ -14,10 +14,9 @@
     "require": {
         "php": ">=5.3.3",
         "symfony/framework-bundle":        "~2.1",
-        "doctrine/orm":                    "*",
-        "stof/doctrine-extensions-bundle": "*",
+        "doctrine/orm":                    "2.3.*@stable",
+        "stof/doctrine-extensions-bundle": "dev-master",
         "white-october/pagerfanta-bundle": "dev-master",
-        "pagerfanta/pagerfanta":           "dev-master",
         "ruler/rule":                      "*"
     },
     "require-dev": {
