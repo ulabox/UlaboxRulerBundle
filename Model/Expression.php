@@ -95,7 +95,6 @@ class Expression implements ExpressionInterface
     public function setName($name)
     {
         $this->name = $name;
-        $this->setSlug($name);
 
         return $this;
     }

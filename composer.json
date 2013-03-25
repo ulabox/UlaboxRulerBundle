@@ -17,7 +17,7 @@
         "doctrine/orm":                    "2.3.*@stable",
         "stof/doctrine-extensions-bundle": "dev-master",
         "white-october/pagerfanta-bundle": "dev-master",
-        "ruler/rule":                      "*"
+        "ruler/ruler":                      "*"
     },
     "require-dev": {
         "phpspec/phpspec2":     "dev-develop",
