@@ -46,6 +46,12 @@ $(function() {
             initialize: function(options) {
                 var factor = this.get('factor') || { operator: 'equals'};
 
+                if (this.get('operator') == null) {
+                    this.set({
+                        'actions': { destroy: false }
+                    });
+                }
+
                 this.set({
                     "factor": new Factor(factor)
                 })
