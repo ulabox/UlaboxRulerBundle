@@ -422,22 +422,6 @@
       return this.models;
     },
 
-    /*toJSON: function() {
-      var result = [];
-      for (var i = 0, l = this.models.length; i < l; i++) {
-        var model = this.models[i];
-        if (model instanceof Model) {
-          console.log('aqui');
-          result[result.length] = model.toJSON();
-        } else {
-          console.log('aca');
-          result[result.length] = model;
-        }
-      }
-
-      return result;
-    },*/
-
     length: function() {
       return this.models.length;
     },
