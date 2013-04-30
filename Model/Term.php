@@ -16,7 +16,7 @@ abstract class Term implements TermInterface
      *
      * @var string
      *
-     * @ORM\Column(name="operator", type="string", length=255)
+     * @ORM\Column(name="operator", type="string", length=255, nullable=true)
      */
     protected $operator;
 
