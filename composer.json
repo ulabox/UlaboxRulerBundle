@@ -13,11 +13,11 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "symfony/framework-bundle":        "~2.1",
+        "symfony/framework-bundle":        "~2.3",
         "doctrine/orm":                    "~2.3",
-        "stof/doctrine-extensions-bundle": "dev-master",
+        "stof/doctrine-extensions-bundle": "@stable",
         "white-october/pagerfanta-bundle": "@stable",
-        "ruler/ruler":                      "*"
+        "ruler/ruler":                      "@stable"
     },
     "require-dev": {
         "phpspec/phpspec2":     "dev-develop",

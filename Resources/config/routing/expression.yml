@@ -1,19 +1,19 @@
 ulabox_ruler_expression_list:
-    pattern: /list
+    path: /list
     defaults: { _controller: ulabox_ruler.controller.expression:listAction }
 
 ulabox_ruler_expression_create:
-    pattern: /create
+    path: /create
     defaults: { _controller: ulabox_ruler.controller.expression:createAction }
 
 ulabox_ruler_expression_update:
-    pattern: /{id}/update
+    path: /{id}/update
     defaults: { _controller: ulabox_ruler.controller.expression:updateAction }
 
 ulabox_ruler_expression_delete:
-    pattern: /{id}/delete
+    path: /{id}/delete
     defaults: { _controller: ulabox_ruler.controller.expression:deleteAction }
 
 ulabox_ruler_expression_show:
-    pattern: /{id}
+    path: /{id}
     defaults: { _controller: ulabox_ruler.controller.expression:showAction }
